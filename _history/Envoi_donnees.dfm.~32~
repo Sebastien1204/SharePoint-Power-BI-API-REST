@@ -1,0 +1,295 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Application SharePoint et Power BI'
+  ClientHeight = 599
+  ClientWidth = 800
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  Position = poScreenCenter
+  OnClick = btnAddDataClick
+  TextHeight = 13
+  object lblSelection: TLabel
+    Left = 300
+    Top = 16
+    Width = 113
+    Height = 13
+    Caption = 'Choisir la plateforme :'
+  end
+  object cmbPlatform: TComboBox
+    Left = 300
+    Top = 40
+    Width = 200
+    Height = 21
+    Style = csDropDownList
+    TabOrder = 0
+    OnChange = cmbPlatformChange
+    Items.Strings = (
+      'SharePoint'
+      'Power BI')
+  end
+  object grpIdentification: TGroupBox
+    Left = 16
+    Top = 74
+    Width = 774
+    Height = 80
+    Caption = 'Identification'
+    TabOrder = 1
+    object lblTenantID: TLabel
+      Left = 16
+      Top = 24
+      Width = 55
+      Height = 13
+      Caption = 'Tenant ID :'
+    end
+    object lblClientID: TLabel
+      Left = 276
+      Top = 24
+      Width = 50
+      Height = 13
+      Caption = 'Client ID :'
+    end
+    object lblClientSecret: TLabel
+      Left = 536
+      Top = 24
+      Width = 70
+      Height = 13
+      Caption = 'Client Secret :'
+    end
+    object edtTenantID: TEdit
+      Left = 16
+      Top = 40
+      Width = 244
+      Height = 21
+      TabOrder = 0
+    end
+    object edtClientID: TEdit
+      Left = 276
+      Top = 40
+      Width = 244
+      Height = 21
+      TabOrder = 1
+    end
+    object edtClientSecret: TEdit
+      Left = 536
+      Top = 40
+      Width = 208
+      Height = 21
+      PasswordChar = '*'
+      TabOrder = 2
+    end
+  end
+  object grpSharePoint: TGroupBox
+    Left = 16
+    Top = 170
+    Width = 376
+    Height = 183
+    Caption = 'SharePoint'
+    TabOrder = 5
+    object lblSiteID: TLabel
+      Left = 16
+      Top = 24
+      Width = 39
+      Height = 13
+      Caption = 'Site ID :'
+    end
+    object lblDriveID: TLabel
+      Left = 16
+      Top = 80
+      Width = 74
+      Height = 13
+      Caption = 'R'#233'pertoire ID :'
+    end
+    object lblFilePath: TLabel
+      Left = 16
+      Top = 130
+      Width = 149
+      Height = 13
+      Caption = 'Chemin du fichier '#224' envoyer :'
+    end
+    object edtSiteID: TEdit
+      Left = 16
+      Top = 40
+      Width = 320
+      Height = 21
+      TabOrder = 0
+    end
+    object edtDriveID: TEdit
+      Left = 16
+      Top = 100
+      Width = 320
+      Height = 21
+      TabOrder = 1
+    end
+    object edtFilePath: TEdit
+      Left = 16
+      Top = 150
+      Width = 320
+      Height = 21
+      TabOrder = 2
+    end
+  end
+  object grpPowerBI: TGroupBox
+    Left = 416
+    Top = 170
+    Width = 376
+    Height = 220
+    Caption = 'Power BI'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 6
+    object lblWorkspaceID: TLabel
+      Left = 16
+      Top = 24
+      Width = 106
+      Height = 13
+      Caption = 'Espace de Travail ID :'
+    end
+    object lblDatasetID: TLabel
+      Left = 16
+      Top = 80
+      Width = 59
+      Height = 13
+      Caption = 'Dataset ID :'
+    end
+    object lblColumns: TLabel
+      Left = 16
+      Top = 140
+      Width = 98
+      Height = 13
+      Caption = 'Colonnes et types :'
+    end
+    object edtWorkspaceID: TEdit
+      Left = 16
+      Top = 40
+      Width = 320
+      Height = 21
+      TabOrder = 0
+    end
+    object edtDatasetID: TEdit
+      Left = 16
+      Top = 100
+      Width = 320
+      Height = 21
+      TabOrder = 1
+    end
+    object edtColumns: TMemo
+      Left = 16
+      Top = 160
+      Width = 320
+      Height = 50
+      TabOrder = 2
+    end
+  end
+  object btnGetToken: TButton
+    Left = 128
+    Top = 362
+    Width = 120
+    Height = 30
+    Caption = 'Obtenir le token'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold, fsUnderline]
+    ParentFont = False
+    TabOrder = 2
+    OnClick = btnGetTokenClick
+  end
+  object grpSharePointActions: TGroupBox
+    Left = 16
+    Top = 393
+    Width = 376
+    Height = 125
+    Caption = 'Actions SharePoint'
+    TabOrder = 3
+    object btnListSites: TButton
+      Left = 8
+      Top = 30
+      Width = 168
+      Height = 35
+      Caption = 'Lister les sites'
+      TabOrder = 0
+      OnClick = btnListSitesClick
+    end
+    object btnListDirectories: TButton
+      Left = 192
+      Top = 30
+      Width = 168
+      Height = 35
+      Caption = 'Lister les r'#233'pertoires d'#39'un site'
+      TabOrder = 1
+      OnClick = btnListDirectoriesClick
+    end
+    object btnListFiles: TButton
+      Left = 8
+      Top = 75
+      Width = 168
+      Height = 35
+      Caption = 'Lister les fichiers'#13#10' d'#39'un r'#233'pertoire'
+      TabOrder = 2
+      WordWrap = True
+      OnClick = btnListFilesClick
+    end
+    object btnUploadFile: TButton
+      Left = 192
+      Top = 75
+      Width = 168
+      Height = 35
+      Caption = 'Envoyer un fichier'
+      TabOrder = 3
+      OnClick = btnUploadFileClick
+    end
+  end
+  object grpPowerBIActions: TGroupBox
+    Left = 416
+    Top = 393
+    Width = 376
+    Height = 125
+    Caption = 'Actions Power BI'
+    TabOrder = 7
+    object btnListWorkspaces: TButton
+      Left = 8
+      Top = 30
+      Width = 168
+      Height = 35
+      Caption = 'Lister les espaces de travail'
+      TabOrder = 0
+      OnClick = btnListWorkspacesClick
+    end
+    object btnListDatasets: TButton
+      Left = 192
+      Top = 30
+      Width = 168
+      Height = 35
+      Caption = 'Lister les jeux de donn'#233'es'#13#10'd'#39'un espace de travail'
+      TabOrder = 1
+      WordWrap = True
+      OnClick = btnListDatasetsClick
+    end
+    object btnAddData: TButton
+      Left = 104
+      Top = 75
+      Width = 160
+      Height = 35
+      Caption = 'Ajouter des donn'#233'es'
+      TabOrder = 2
+      OnClick = btnAddDataClick
+    end
+  end
+  object MemoOutput: TMemo
+    Left = 16
+    Top = 530
+    Width = 776
+    Height = 60
+    TabOrder = 4
+  end
+end
